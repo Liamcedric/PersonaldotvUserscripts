@@ -5,6 +5,7 @@
  */
 
 settings = getSettings();
+scripts = [smartAutoHeal, dailyStats, raidShareGroup];
 
 watchForSettingsMenu();
 
@@ -73,12 +74,11 @@ function watchForSettingsMenu() {
 
 function getSettings() {
 	if (localStorage.getItem("scriptSettings") === null) {
-		scripts = {
-			smartAutoHeal: false,
-			dailyStats: false,
-			raidShareGroup: false,
-		};
-		localStorage.setItem("scriptSettings", JSON.stringify(scripts));
+		const scriptsObject = scripts.reduce((acc, curr) => {
+			acc[curr] = false;
+			return acc;
+		}, {});
+		localStorage.setItem("scriptSettings", JSON.stringify(scriptsObject));
 	}
 	return JSON.parse(localStorage.getItem("scriptSettings"));
 }
