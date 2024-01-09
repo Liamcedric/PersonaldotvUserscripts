@@ -5,7 +5,7 @@
  */
 
 settings = getSettings();
-scripts = [smartAutoHeal, dailyStats, raidShareGroup];
+scripts = ["smartAutoHeal", "dailyStats", "raidShareGroup"];
 
 watchForSettingsMenu();
 
