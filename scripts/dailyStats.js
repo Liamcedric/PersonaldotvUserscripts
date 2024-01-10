@@ -81,7 +81,21 @@ async function getDailyStatChange() {
 
 	return `sp gained: ${sp - yesterdayStats.spVal}\nlevel gained: ${
 		stats.level - yesterdayStats.lvl
-	}`;
+	}\nReset in: ${getTimeToReset()}`;
+}
+
+function getTimeToReset() {
+	let now = new Date();
+	let nextDay = new Date(
+		Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1)
+	);
+	let timeUntilNextDay = nextDay - now;
+
+	let hours = Math.floor(timeUntilNextDay / (1000 * 60 * 60));
+	let minutes = Math.floor((timeUntilNextDay % (1000 * 60 * 60)) / (1000 * 60));
+	let seconds = Math.floor((timeUntilNextDay % (1000 * 60)) / 1000);
+
+	return `${hours}h ${minutes}m ${seconds}s`;
 }
 
 async function getUserData() {
