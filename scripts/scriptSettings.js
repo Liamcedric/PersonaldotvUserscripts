@@ -4,8 +4,9 @@
  * Description: Allows the user to enable/disable scripts from a settings menu.
  */
 
-settings = getSettings();
 scripts = ["smartAutoHeal", "smartLesserGrit", "dailyStats", "raidShareGroup"];
+
+settings = getSettings();
 
 watchForSettingsMenu();
 
@@ -79,6 +80,17 @@ function getSettings() {
 			return acc;
 		}, {});
 		localStorage.setItem("scriptSettings", JSON.stringify(scriptsObject));
+	} else {
+		const savedSettings = JSON.parse(localStorage.getItem("scriptSettings"));
+		const newScripts = scripts.filter(
+			(script) => savedSettings[script] === undefined
+		);
+		if (newScripts.length > 0) {
+			newScripts.forEach((script) => {
+				savedSettings[script] = false;
+			});
+			localStorage.setItem("scriptSettings", JSON.stringify(savedSettings));
+		}
 	}
 	return JSON.parse(localStorage.getItem("scriptSettings"));
 }
