@@ -13,7 +13,6 @@ function main() {
 async function usePotWithCooldown() {
 	let cooldown = await usePot();
 	setTimeout(usePotWithCooldown, (cooldown + 1) * 1000);
-	
 }
 
 async function usePot() {
@@ -27,7 +26,11 @@ async function usePot() {
 			if (data.success) {
 				secondsUntilNextPot = 7200;
 			} else {
-				secondsUntilNextPot = parseInt(data.errorMsg.match(/\d+/)[0]);
+				try {
+					secondsUntilNextPot = parseInt(data.errorMsg.match(/\d+/)[0]);
+				} catch (err) {
+					secondsUntilNextPot = 60;
+				}
 			}
 		});
 
