@@ -26,7 +26,11 @@ async function usePot() {
 			if (data.success) {
 				secondsUntilNextPot = 360;
 			} else {
-				secondsUntilNextPot = parseInt(data.errorMsg.match(/\d+/)[0]);
+				try {
+					secondsUntilNextPot = parseInt(data.errorMsg.match(/\d+/)[0]);
+				} catch (err) {
+					secondsUntilNextPot = 60;
+				}
 			}
 		});
 
