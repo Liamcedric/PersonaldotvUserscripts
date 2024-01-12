@@ -26,11 +26,8 @@ async function usePot() {
 			if (data.success) {
 				secondsUntilNextPot = 360;
 			} else {
-				try {
-					secondsUntilNextPot = parseInt(data.errorMsg.match(/\d+/)[0]);
-				} catch (err) {
-					secondsUntilNextPot = 60;
-				}
+				let match = data.errorMsg.match(/\d+/);
+				secondsUntilNextPot = match ? parseInt(match[0]) : 60;
 			}
 		});
 
