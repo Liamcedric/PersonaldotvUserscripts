@@ -79,10 +79,11 @@ async function getDailyStatChange() {
 		localStorage.setItem("dailyStats", JSON.stringify(newStats));
 	}
 
-	return `sp gained: ${sp - yesterdayStats.spVal}
- 		\nlevel gained: ${stats.level - yesterdayStats.lvl}
-   		\nReset in: ${getTimeToReset()}
-     		\nYesterday Grand Total sp : ${yesterdayStats.spVal}`;
+	return `sp gained: ${sp - yesterdayStats.spVal}\nlevel gained: ${
+		stats.level - yesterdayStats.lvl
+	}\nReset in: ${getTimeToReset()}\nYesterday Grand Total sp : ${
+		yesterdayStats.spVal
+	}`;
 }
 
 function getTimeToReset() {
