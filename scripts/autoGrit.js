@@ -1,7 +1,7 @@
 /**
  * Author: infinity
- * Name: Lesser Draught Grit Auto
- * Description: Automatically uses Lesser Grit pots for you.
+ * Name: Auto Grit
+ * Description: Automatically uses Grit pots for you.
  */
 
 if (JSON.parse(localStorage.getItem("scriptSettings"))?.autoGrit) main();
