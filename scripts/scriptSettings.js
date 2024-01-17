@@ -4,7 +4,13 @@
  * Description: Allows the user to enable/disable scripts from a settings menu.
  */
 
-scripts = ["smartAutoHeal", "smartLesserGrit", "dailyStats", "raidInfo"]; //, "raidShareGroup"];
+scripts = [
+	"smartAutoHeal",
+	"smartLesserGrit",
+	"dailyStats",
+	"raidInfo",
+	"autoGrit",
+]; //, "raidShareGroup"];
 
 settings = getSettings();
 
