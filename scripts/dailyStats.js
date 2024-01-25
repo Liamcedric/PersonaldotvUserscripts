@@ -138,13 +138,10 @@ function getStatsFromData(data) {
 }
 
 function calcSpValue(stats) {
-	let sp = 0;
+	let sp = -stats.level;
 
 	for (const [stat, value] of Object.entries(stats)) {
-		if (stat === "level") {
-			sp -= value;
-			continue;
-		}
+		//stat is the key(str, agi, etc), value is the value
 		///TODO handle stat values >10000 here
 		/*
 		Starting at 10k it cost 2.
@@ -152,9 +149,39 @@ function calcSpValue(stats) {
 
 		At 25k it increases by 1 every 1k
 		*/
-
-		sp += value;
+		sp += statToSp(value);
 	}
 
+	return sp;
+}
+
+function statToSp(value) {
+	sp = 0;
+	//<=10k
+	if (value <= 10000) {
+		return value;
+	}
+	//<=25k
+	if (value <= 25000) {
+		sp += statToSp(10000);
+		value -= 10000;
+		inc = 1500;
+		startCost = 2;
+	}
+	//>=25k
+	else {
+		sp += statToSp(25000);
+		value -= 25000;
+		inc = 1000;
+		startCost = 12;
+	}
+
+	const endCost = Math.floor(value / inc) + startCost - 1;
+	const numIncrements = endCost - startCost + 1;
+
+	//sum of arithmetic series * amount of stats per increment(1500 or 1000)
+	sp += (numIncrements / 2) * (startCost + endCost) * inc;
+	//remainder
+	sp += (value % inc) * (endCost + 1);
 	return sp;
 }
