@@ -142,13 +142,6 @@ function calcSpValue(stats) {
 
 	for (const [stat, value] of Object.entries(stats)) {
 		//stat is the key(str, agi, etc), value is the value
-		///TODO handle stat values >10000 here
-		/*
-		Starting at 10k it cost 2.
-		10k to 25k every 1.5k it increases cost by 1.
-
-		At 25k it increases by 1 every 1k
-		*/
 		sp += statToSp(value);
 	}
 
