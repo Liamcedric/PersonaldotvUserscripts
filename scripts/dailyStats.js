@@ -142,9 +142,11 @@ function calcSpValue(stats) {
 
 	for (const [stat, value] of Object.entries(stats)) {
 		//stat is the key(str, agi, etc), value is the value
-		sp += statToSp(value);
+		spval = statToSp(value);
+		console.log(`${stat}: ${value} = ${spval}`);
+		sp += spval;
 	}
-
+	console.log(`Total sp: ${sp}`);
 	return sp;
 }
 
@@ -156,14 +158,14 @@ function statToSp(value) {
 	}
 	//<=25k
 	if (value <= 25000) {
-		sp += statToSp(10000);
+		sp += 10000; // statToSp(10000)
 		value -= 10000;
 		inc = 1500;
 		startCost = 2;
 	}
 	//>=25k
 	else {
-		sp += statToSp(25000);
+		sp += 107495; // statToSp(25000)
 		value -= 25000;
 		inc = 1000;
 		startCost = 12;
