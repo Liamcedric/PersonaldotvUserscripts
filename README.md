@@ -12,8 +12,6 @@ To install, follow these steps:
 
 - smart auto heal/grit: uses an hp/grit pot every time it is off cd
 - daily stat tracker: hover over avatar to see sp/lvls gained since last reset
-  
-WIP:
-- raid share group: very much WIP, planned to be a tab to access shared raids
+- raid info: shows weakness and resist of all raids
 
 **all scripts can be toggled via the in game settings menu**
