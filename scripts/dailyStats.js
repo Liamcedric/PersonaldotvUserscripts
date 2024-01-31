@@ -7,6 +7,8 @@
 if (JSON.parse(localStorage.getItem("scriptSettings"))?.dailyStats) main();
 
 let lastResponse;
+let data;
+
 async function main() {
 	//set up local storage for first time use
 	if (localStorage.getItem("dailyStats") === null) {
@@ -59,7 +61,7 @@ async function setupEventListeners() {
 }
 
 async function getDailyStatChange() {
-	const data = await getUserData();
+	if (!data) data = await getUserData();
 	const stats = getStatsFromData(data);
 	const sp = calcSpValue(stats);
 
