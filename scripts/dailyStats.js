@@ -144,7 +144,8 @@ function calcSpValue(stats) {
 
 	for (const [stat, value] of Object.entries(stats)) {
 		//stat is the key(str, agi, etc), value is the value
-		spval = statToSp(value);
+		if (stat != "sp") spval = statToSp(value);
+		else spval = value;
 		console.log(`${stat}: ${value} = ${spval}`);
 		sp += spval;
 	}
