@@ -4,13 +4,7 @@
  * Description: Allows the user to enable/disable scripts from a settings menu.
  */
 
-scripts = [
-	"smartAutoHeal",
-	"smartLesserGrit",
-	"dailyStats",
-	"raidInfo",
-	"autoGrit",
-]; //, "raidShareGroup"];
+scripts = ["dailyStats", "raidInfo"]; //, "raidShareGroup"];
 
 settings = getSettings();
 
@@ -38,6 +32,7 @@ function buildSettingsMenu() {
 	settingsView.appendChild(fieldset);
 
 	Object.entries(settings).forEach(([key, value]) => {
+		if (!scripts.includes(key)) return;
 		const checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
 		checkbox.checked = value;
