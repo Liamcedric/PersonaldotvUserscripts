@@ -8,12 +8,12 @@ scripts = [
 	"smartAutoHeal",
 	"smartAutoHeal2",
 	"smartLesserGrit",
-	"dailyStats",
-	"raidInfo",
-	"smartLesserGrit",
 	"smartGrit",
 	"smartIllOmensGrit",
+	"smartGreaterGrit",
 	"smartThiadoranFigGrit",
+	"dailyStats",
+	"raidInfo",
 ]; //, "raidShareGroup"];
 
 settings = getSettings();
