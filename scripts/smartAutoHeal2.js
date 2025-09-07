@@ -1,6 +1,6 @@
 /**
  * Author: infinity
- * Name: Smart Auto Heal
+ * Name: Smart Auto Heal 2
  * Description: Automatically uses hp pots for you.
  */
 
