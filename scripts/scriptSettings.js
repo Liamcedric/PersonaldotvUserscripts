@@ -6,6 +6,7 @@
 
 scripts = [
 	"smartAutoHeal",
+	"smartAutoHeal2",
 	"smartLesserGrit",
 	"dailyStats",
 	"raidInfo",
