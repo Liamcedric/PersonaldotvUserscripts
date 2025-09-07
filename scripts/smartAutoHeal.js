@@ -25,7 +25,7 @@ async function usePot() {
 		.then((data) => {
 			if (data.success) {
 				secondsUntilNextPot = 300;
-				console.log("Health Pot Used");
+				console.log("25 Health Pot Used");
 			} else {
 				let match = data.errorMsg.match(/\d+/);
 				secondsUntilNextPot = match ? parseInt(match[0]) : 60;
