@@ -24,7 +24,7 @@ async function usePot() {
 		.then((res) => res.json())
 		.then((data) => {
 			if (data.success) {
-				secondsUntilNextPot = 7200;
+				secondsUntilNextPot = 3600;
 			} else {
 				let match = data.errorMsg.match(/\d+/);
 				secondsUntilNextPot = match ? parseInt(match[0]) : 60;
