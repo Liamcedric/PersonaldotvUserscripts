@@ -10,7 +10,10 @@ scripts = [
 	"smartLesserGrit",
 	"dailyStats",
 	"raidInfo",
-	"autoGrit",
+	"smartLesserGrit",
+	"smartGrit",
+	"smartIllOmensGrit",
+	"smartThiadoranFigGrit",
 ]; //, "raidShareGroup"];
 
 settings = getSettings();
