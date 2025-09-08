@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PersonaldotvUserscripts
 // @namespace    https://github.com/Liamcedric/PersonaldotvUserscripts
-// @version      0.66
+// @version      0.67
 // @description  a collection of dotv userscripts
 // @author       infinity
 // @match        https://play.dragonsofthevoid.com/*
